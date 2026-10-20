@@ -1,5 +1,5 @@
 :root {
-    --rainbow-text-sway: 5px;
+    --rainbow-text-sway: 10px;
     --rainbow: rgb(255, 0, 0);
     animation: rainbow 4s linear infinite;
 }
@@ -85,8 +85,11 @@ main {
 }
 
 .main {
-    font-size: 80px;
+    margin-block: 0.2em;
+    font-size: 120px;
     position: relative;
+
+    letter-spacing: -7px;
 }
 
 @keyframes grid-move {
@@ -121,6 +124,7 @@ main {
 }
 
 span.rainbow-char {
+    margin-block: inherit;
     display: inline-block;
     animation: rainbow 4s linear infinite, updown 4s ease-in-out infinite;
     color: var(--rainbow);
