@@ -1,0 +1,152 @@
+:root {
+    --rainbow-text-sway: 5px;
+    --rainbow: rgb(255, 0, 0);
+    animation: rainbow 4s linear infinite;
+}
+
+main {
+    width: min(750px, 100vw);
+    margin-inline: auto;
+}
+
+.topbar {
+    display: flex;
+    justify-content: end;
+    flex-direction: row;
+}
+
+.footer {
+    display: flex;
+    justify-content: center;
+}
+
+.logo-area {
+    position: relative;
+    width: fit-content;
+    align-self: center;
+}
+
+#intro-text {
+    position: absolute;
+    right: 100%;
+    top: 30%;
+    rotate: -12.5deg;
+
+    font-family: "Space Grotesk", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 800;
+    font-style: normal;
+
+    color:gray
+}
+
+.hero h2 {
+    font-family: "Space Grotesk", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 800;
+    font-style: normal;
+
+    color:gray
+}
+
+.topbar a {
+    /*
+    text-shadow:
+        -1px -1px #ffffff,
+        1px -1px #ffffff,
+        1px 1px #ffffff,
+        -1px 1px #ffffff ;*/
+
+    transition: color 0.1s, text-decoration-color 0.1s;
+
+    text-decoration: wavy underline transparent;
+    color: darkslategray;
+
+    font-family: "Space Grotesk", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 800;
+    font-style: normal;
+
+    font-size: large;
+
+    margin-right: 20px;
+}
+
+.topbar a:hover {
+    color: var(--rainbow);
+    text-decoration-color: var(--rainbow);
+}
+
+.space-grotesk-font {
+  font-family: "Space Grotesk", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 800;
+  font-style: normal;
+}
+
+.main {
+    font-size: 80px;
+    position: relative;
+}
+
+@keyframes grid-move {
+    from { background-position: 0px 0px; }
+    to { background-position: 60px 60px; }
+}
+
+@keyframes rainbow {
+    0% { --rainbow: rgb(255, 0, 0); }
+    10% { --rainbow: rgb(255, 154, 0); }
+    20% { --rainbow: rgb(208, 222, 33); }
+    30% { --rainbow: rgb(79, 220, 74); }
+    40% { --rainbow: rgb(63, 218, 216); }
+    50% { --rainbow: rgb(47, 201, 226); }
+    60% { --rainbow: rgb(28, 127, 238); }
+    70% { --rainbow: rgb(95, 21, 242); }
+    80% { --rainbow: rgb(186, 12, 248); }
+    90% { --rainbow: rgb(251, 7, 217); }
+    100% { --rainbow: rgb(255, 0, 0); }
+}
+
+@keyframes updown {
+    0% { transform: translateY(var(--rainbow-text-sway)); }
+    50% { transform: translateY(calc(var(--rainbow-text-sway) * -1)); }
+    100% { transform: translateY(var(--rainbow-text-sway)); }
+}
+
+@property --rainbow {
+    syntax: "<color>";
+    inherits: true;
+    initial-value: rgb(255, 0, 0);
+}
+
+span.rainbow-char {
+    display: inline-block;
+    animation: rainbow 4s linear infinite, updown 4s ease-in-out infinite;
+    color: var(--rainbow);
+}
+
+.hero {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+
+#testdiv {
+    background-color: lightgray;
+    width: fit-content;
+    align-self: center;
+    outline: 0.25rem solid green;
+    border-radius: 100px;
+    padding: 10px;
+}
+
+body {
+    animation: 5s linear infinite grid-move;
+
+    background-size: 60px 60px;
+    background-image:
+        linear-gradient(to right, #dddddd 3px, transparent 3px),
+        linear-gradient(to bottom, #dddddd 3px, transparent 3px);
+}
