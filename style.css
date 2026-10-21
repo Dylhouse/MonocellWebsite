@@ -5,14 +5,96 @@
 }
 
 main {
-    width: min(750px, 100vw);
+    width: max(80vw, min(100vw, 750px));
     margin-inline: auto;
 }
 
-.topbar {
+.title {
+    color: darkslategray;
+
+    font-family: "Space Grotesk", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 800;
+    font-style: normal;
+
+    font-size: 100px;
+}
+
+#top-nav {
     display: flex;
     justify-content: end;
     flex-direction: row;
+
+    padding: 3px;
+
+    backdrop-filter: blur(5px);
+    background-color: transparent;
+    filter: saturate(10%);
+    box-shadow: 0px 4px 6px rgba(0, 0, 1, .4), inset 0px 0px 6px 3px rgba(200, 200, 200, 0.75);
+}
+
+#games {
+}
+
+#games::before {
+    z-index: -1;
+    content: "";
+
+    position: absolute;
+
+    width: 100vw;
+    height: 1000px;
+
+    /* put it in the center of the screen*/
+    left: 50%;
+    /* move it back half of the screen (width is 100vw)*/
+    translate: -50%;
+
+    animation: 5s linear infinite grid-move;
+
+    background-color: hsl(130 25% 95%);
+
+    background-size: 60px 60px;
+    background-image:
+        linear-gradient(to right, hsl(130 30% 80%) 3px, transparent 3px),
+        linear-gradient(to bottom, hsl(130 30% 80%) 3px, transparent 3px);
+}
+
+@keyframes xscroll {
+    from { left: 0%; translate: -100% 0; }
+    to { left: 100%; translate: 0% 0; }
+}
+
+.marquee {
+    position: absolute;
+    animation: xscroll 5s linear infinite;
+
+    font-family: "Space Grotesk", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-style: normal;
+
+    color:gray;
+
+    text-shadow:
+        -1px -1px 0 white,
+        1px -1px 0 white,
+        -1px 1px 0 white,
+        1px 1px 0 white;
+}
+
+.separator {
+    position: relative;
+    box-sizing: border-box;
+    width: 100vw;
+    height: 30px;
+    left: 50%;
+    margin-left: -50vw;
+
+    backdrop-filter: blur(10px);
+    background-color: var(--rainbow);
+    filter: saturate(70%);
+    box-shadow: 0px 2px 6px rgba(0, 0, 1, .2), inset 0px 0px 6px 3px rgba(255, 255, 255, 0.75);
 }
 
 .footer {
@@ -37,7 +119,7 @@ main {
     font-weight: 800;
     font-style: normal;
 
-    color:gray
+    color:gray;
 }
 
 .hero h2 {
@@ -49,7 +131,7 @@ main {
     color:gray
 }
 
-.topbar a {
+#top-nav a {
     /*
     text-shadow:
         -1px -1px #ffffff,
@@ -64,15 +146,15 @@ main {
 
     font-family: "Space Grotesk", sans-serif;
     font-optical-sizing: auto;
-    font-weight: 800;
+    font-weight: 700;
     font-style: normal;
 
-    font-size: large;
+    font-size: 20px;
 
     margin-right: 20px;
 }
 
-.topbar a:hover {
+#top-nav a:hover {
     color: var(--rainbow);
     text-decoration-color: var(--rainbow);
 }
@@ -86,7 +168,7 @@ main {
 
 .main {
     margin-block: 0.2em;
-    font-size: 120px;
+    font-size: 200px;
     position: relative;
 
     letter-spacing: -7px;
@@ -149,6 +231,7 @@ span.rainbow-char {
 body {
     animation: 5s linear infinite grid-move;
 
+    background-color: whitesmoke;
     background-size: 60px 60px;
     background-image:
         linear-gradient(to right, #dddddd 3px, transparent 3px),
