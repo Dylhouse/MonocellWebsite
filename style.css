@@ -4,6 +4,103 @@
     animation: rainbow 4s linear infinite;
 }
 
+@keyframes wave {
+  to {
+    -webkit-mask-position: 0.5em 0;
+            mask-position: 0.5em 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .wavy::after { animation: none; }
+}
+/* end claude wrote */
+
+#top-links {
+    display: flex;
+    flex-direction: row;
+
+    justify-self: end;
+}
+
+/* header / top bar thingy */
+#top-nav {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+
+    padding: 3px;
+
+    backdrop-filter: blur(5px);
+    background-color: transparent;
+    box-shadow: 0px 4px 6px rgba(0, 0, 1, .4), inset 0px 0px 6px 3px rgba(200, 200, 200, 0.75);
+}
+
+.rainbow-color {
+    color: var(--rainbow);
+}
+
+#top-nav a:hover {
+    color: var(--rainbow);
+    text-decoration-color: var(--rainbow);
+}
+
+.rainbow-link {
+    font-family: "Space Grotesk", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-style: normal;
+
+    font-size: 20px;
+
+    margin-right: 20px;
+
+    text-decoration: none;
+}
+
+.rainbow-link .text {
+    text-decoration: wavy underline;
+
+    transition: opacity 0.35s;
+
+    opacity: 0;
+    color: var(--rainbow);
+}
+
+.rainbow-link:hover .text {
+    opacity: 1;
+}
+
+.rainbow-link .overlap {
+    position: absolute;
+
+    transition: color 0.35s;
+    color: darkslategray;
+}
+
+.rainbow-link:hover .overlap {
+    color: transparent;
+}
+
+a.overlap {
+    position: absolute;
+
+    color: darkslategray;
+
+    font-family: "Space Grotesk", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-style: normal;
+
+    font-size: 20px;
+
+    margin-right: 20px;
+
+    color: var(--rainbow);
+}
+
+
+
 main {
     width: max(80vw, min(100vw, 750px));
     margin-inline: auto;
@@ -18,19 +115,6 @@ main {
     font-style: normal;
 
     font-size: 100px;
-}
-
-#top-nav {
-    display: flex;
-    justify-content: end;
-    flex-direction: row;
-
-    padding: 3px;
-
-    backdrop-filter: blur(5px);
-    background-color: transparent;
-    filter: saturate(10%);
-    box-shadow: 0px 4px 6px rgba(0, 0, 1, .4), inset 0px 0px 6px 3px rgba(200, 200, 200, 0.75);
 }
 
 #games {
@@ -63,6 +147,10 @@ main {
 @keyframes xscroll {
     from { left: 0%; translate: -100% 0; }
     to { left: 100%; translate: 0% 0; }
+}
+
+#landing-link {
+    alig: center;
 }
 
 .marquee {
@@ -129,34 +217,6 @@ main {
     font-style: normal;
 
     color:gray
-}
-
-#top-nav a {
-    /*
-    text-shadow:
-        -1px -1px #ffffff,
-        1px -1px #ffffff,
-        1px 1px #ffffff,
-        -1px 1px #ffffff ;*/
-
-    transition: color 0.1s, text-decoration-color 0.1s;
-
-    text-decoration: wavy underline transparent;
-    color: darkslategray;
-
-    font-family: "Space Grotesk", sans-serif;
-    font-optical-sizing: auto;
-    font-weight: 700;
-    font-style: normal;
-
-    font-size: 20px;
-
-    margin-right: 20px;
-}
-
-#top-nav a:hover {
-    color: var(--rainbow);
-    text-decoration-color: var(--rainbow);
 }
 
 .space-grotesk-font {
