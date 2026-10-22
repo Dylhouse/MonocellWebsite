@@ -113,6 +113,45 @@ main {
     color: darkslateblue;
 }
 
+.link-icon {
+    display: block;
+
+    width: 1.5em;
+    height: 1.5em;
+
+    margin-inline: 0.2rem;
+}
+
+#iconated-links-top {
+    display: flex;
+    flex-direction: row;
+}
+
+.link-icon svg {
+    transition: fill 0.35s;
+    fill: darkslategray;
+}
+
+.link-icon:hover #discord {
+    fill: #5865F2; /* blurple type shii */
+}
+
+.link-icon:hover #steam {
+    fill: #000000; /* blurple type shii */
+}
+
+.link-icon:hover #youtube {
+    fill: #ff0033; /* blurple type shii */
+}
+
+.text-icon {
+    width: 1em;
+    height: 1em;
+    vertical-align: -0.15em;
+
+    margin-right: 0.2em;
+}
+
 .title {
     font-family: "Space Grotesk", sans-serif;
     font-optical-sizing: auto;
