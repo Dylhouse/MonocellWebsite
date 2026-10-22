@@ -4,17 +4,10 @@
     animation: rainbow 4s linear infinite;
 }
 
-@keyframes wave {
-  to {
-    -webkit-mask-position: 0.5em 0;
-            mask-position: 0.5em 0;
-  }
+@font-face {
+    font-family: "Console Sans Ext";
+    src: url("./assets/ConsoleSansExt-Regular.otf");
 }
-
-@media (prefers-reduced-motion: reduce) {
-  .wavy::after { animation: none; }
-}
-/* end claude wrote */
 
 #top-links {
     display: flex;
@@ -112,21 +105,60 @@ main {
     margin-inline: auto;
 }
 
-.title {
+#games-title {
     color: darkslategray;
+}
 
+#not-games-title {
+    color: darkslateblue;
+}
+
+.title {
     font-family: "Space Grotesk", sans-serif;
     font-optical-sizing: auto;
     font-weight: 800;
     font-style: normal;
 
     font-size: 100px;
+
+    margin-block: 0;
 }
 
 #games {
+    --grid-back-color: hsl(130 25% 95%);
+    --grid-line-color: hsl(130 30% 80%);
 }
 
-#games::before {
+#not-games {
+    --grid-back-color: hsl(200 23% 95%);
+    --grid-line-color: hsl(200 30% 80%);
+}
+
+.projects {
+    display: flex;
+    flex-direction: column;
+}
+
+.proj-banner {
+    display: flex;
+    flex-direction: row;
+
+    margin-block: 2rem;
+}
+
+.info-display {
+    margin-inline: 2rem;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+}
+
+.proj-banner img {
+    border-radius: 8px;
+    outline: 3px solid hsl(from var(--rainbow) h 60% l / alpha);
+    box-shadow: 0px 4px 6px rgba(0, 0, 1, .4)
+}
+
+.grid-bg::before {
     z-index: -1;
     content: "";
 
@@ -142,21 +174,17 @@ main {
 
     animation: 5s linear infinite grid-move;
 
-    background-color: hsl(130 25% 95%);
+    background-color: var(--grid-back-color);
 
     background-size: 60px 60px;
     background-image:
-        linear-gradient(to right, hsl(130 30% 80%) 3px, transparent 3px),
-        linear-gradient(to bottom, hsl(130 30% 80%) 3px, transparent 3px);
+        linear-gradient(to right, var(--grid-line-color) 3px, transparent 3px),
+        linear-gradient(to bottom, var(--grid-line-color) 3px, transparent 3px);
 }
 
 @keyframes xscroll {
     from { left: 0%; translate: -100% 0; }
     to { left: 100%; translate: 0% 0; }
-}
-
-#landing-link {
-    alig: center;
 }
 
 .marquee {
@@ -200,6 +228,52 @@ main {
     position: relative;
     width: fit-content;
     align-self: center;
+}
+
+.game-info {
+    font-family: "Console Sans Ext", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+
+    font-size: 25px;
+
+    margin-block: 0.5rem;
+}
+
+.game-description {
+    font-family: "Space Grotesk", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 450;
+    font-style: normal;
+
+    font-size: 20px;
+
+    margin-block: 0.4rem;
+}
+
+.game-title {
+    font-family: "Space Grotesk", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 800;
+    font-style: normal;
+
+    font-size: 55px;
+
+    margin-block: 0.5rem;
+
+    transform: scaleY(1.05);
+}
+
+.tiny-text {
+    font-family: "Space Grotesk", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+
+    color:gray;
+
+    font-size: small;
 }
 
 #intro-text {
