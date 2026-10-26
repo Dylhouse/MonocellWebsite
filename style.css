@@ -17,7 +17,7 @@
 }
 
 /* header / top bar thingy */
-#top-nav {
+#nav-top {
     top: 15px;
 
     z-index: 20;
@@ -31,7 +31,7 @@
     padding: 3px;
 
     backdrop-filter: blur(5px);
-    background-color: transparent;
+    background-color: #ffffffdd;
     box-shadow: 0px 4px 6px rgba(0, 0, 1, .4), inset 0px 0px 6px 3px rgba(200, 200, 200, 0.75);
 }
 
@@ -39,7 +39,7 @@
     color: var(--rainbow);
 }
 
-#top-nav a:hover {
+#nav-top a:hover {
     color: var(--rainbow);
     text-decoration-color: var(--rainbow);
 }
@@ -110,7 +110,78 @@ main {
 }
 
 #not-games-title {
+    color: rgb(35, 74, 158);
+}
+
+#about-title {
     color: darkslateblue;
+}
+
+#about-desc {
+    font-family: "Space Grotesk", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+
+    font-size: 1.5rem
+}
+
+.profile {
+    display: flex;
+
+    background-color: rgba(10, 20, 20);
+    outline: 5px solid darkslategray;
+    border-radius: 10px;
+
+    padding: 5px;
+
+    margin-block: 25px;
+
+    height: 12.5rem;
+}
+
+.profile h1 {
+    font-family: "Space Grotesk", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-style: normal;
+
+    color: #eeeeee;
+
+    margin-block-start: 0.5rem;
+    margin-block-end: 0rem;
+}
+
+.profile h2 {
+    font-family: "Console Sans Ext", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+
+    font-size: 25px;
+
+    color: #eeeeee;
+
+    margin-block: 0rem;
+}
+
+.profile p {
+    font-family: "Space Grotesk", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-style: normal;
+
+    font-size: large;
+
+    color: #eeeeee;
+
+    margin-block: 0.3rem;
+}
+
+.profile-pic {
+    margin: 10px;
+    margin-right: 15px;
+    border-radius: 25%;
 }
 
 .link-icon {
@@ -173,6 +244,10 @@ main {
     --grid-line-color: hsl(200 30% 80%);
 }
 
+#about {
+    --grid-back-color: hsl(260, 23%, 95%);
+    --grid-line-color: hsl(260 30% 80%);
+}
 .projects {
     display: flex;
     flex-direction: column;
@@ -193,8 +268,8 @@ main {
 
 .proj-banner img {
     border-radius: 8px;
-    outline: 3px solid hsl(from var(--rainbow) h 60% l / alpha);
-    box-shadow: 0px 4px 6px rgba(0, 0, 1, .4)
+    outline: 3px solid darkslategray;
+    box-shadow: 0px 4px 6px rgba(0, 0, 1, .6)
 }
 
 .grid-bg::before {
@@ -219,29 +294,6 @@ main {
     background-image:
         linear-gradient(to right, var(--grid-line-color) 3px, transparent 3px),
         linear-gradient(to bottom, var(--grid-line-color) 3px, transparent 3px);
-}
-
-@keyframes xscroll {
-    from { left: 0%; translate: -100% 0; }
-    to { left: 100%; translate: 0% 0; }
-}
-
-.marquee {
-    position: absolute;
-    animation: xscroll 5s linear infinite;
-
-    font-family: "Space Grotesk", sans-serif;
-    font-optical-sizing: auto;
-    font-weight: 600;
-    font-style: normal;
-
-    color:gray;
-
-    text-shadow:
-        -1px -1px 0 white,
-        1px -1px 0 white,
-        -1px 1px 0 white,
-        1px 1px 0 white;
 }
 
 .separator {
@@ -345,7 +397,9 @@ main {
   font-style: normal;
 }
 
-.main {
+#main {
+    white-space: nowrap;
+
     margin-block: 0.2em;
     font-size: 200px;
     position: relative;
