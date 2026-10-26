@@ -7,7 +7,7 @@ const possible_text = [
     "probably",
     "polysystem,",
     "we're",
-    "something, something",
+    "something something",
     "Fig 1."];
 
 
