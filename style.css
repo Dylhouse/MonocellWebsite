@@ -109,10 +109,6 @@ main {
     color: darkslategray;
 }
 
-#not-games-title {
-    color: rgb(35, 74, 158);
-}
-
 #about-title {
     color: darkslateblue;
 }
@@ -237,11 +233,6 @@ main {
 #games {
     --grid-back-color: hsl(130 25% 95%);
     --grid-line-color: hsl(130 30% 80%);
-}
-
-#not-games {
-    --grid-back-color: hsl(200 23% 95%);
-    --grid-line-color: hsl(200 30% 80%);
 }
 
 #about {
